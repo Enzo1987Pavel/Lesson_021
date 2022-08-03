@@ -123,9 +123,9 @@ class Request:
 			self.__from = None
 
 	def move(self):
-		if self.__to and self.__from:
-			if eval(self.__to).add(self.__product, self.__amount):
-				eval(self.__from).remove(self.__product, self.__amount)
+		if self.__from and self.__to:
+			if eval(self.__from).remove(self.__product, self.__amount):
+				eval(self.__to).add(self.__product, self.__amount)
 		elif self.__to:
 			eval(self.__to).add(self.__product, self.__amount)
 		elif self.__from:
@@ -134,4 +134,4 @@ class Request:
 
 # Данные по складу 'store_1' и магазину 'shop_1'
 store_1 = Store(items={"Кружка": 30, "Фонарик": 15, "Отвертка": 10})
-shop_1 = Shop(items={"Часы": 5, "Альбом": 3, "Удлинитель": 2})
+shop_1 = Shop(items={"Кружка": 5, "Фонарик": 3, "Удлинитель": 2})
